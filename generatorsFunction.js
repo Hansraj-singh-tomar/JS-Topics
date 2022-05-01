@@ -1,6 +1,7 @@
 //! ye ese functions hote hai jinhe ham pause and resume kar sakte hai
 // jiski exucution ko ham bich me rok sakte hai or resume kar sakte hai 
 
+//TODO:1
 // function* simpleGenerator(){  //! ye star* function ke sath ya function name ke sath dono jagah lga sakte hai
 //     console.log('function called');
 //     let x = 100;
@@ -32,9 +33,10 @@ output -
         {value: undefined, done: true}
 */
 
-//! Real Life use in Project - Dynamic id generate karenge iski help se 
+//TODO: 2 
+//! Real Life use of Generators - Dynamic id generate karenge iski help se 
 // me iske upar ek loop jaise hi me ek function par click karunga ye execute hoga but one step hi execute hogi isse or har baar ek new ID generate hokar milegi
-// iske use se hamra function bar bar call nhi hoga, ek bar memory me aane par same function hi call hota rhega 
+// iske use se hamara function bar bar call nhi hoga, ek bar memory me aane par same function hi call hota rhega 
 
 function* simpleGenerator(){
     let i = 100;
