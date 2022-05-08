@@ -7,7 +7,7 @@
 //         age : 26,
 //         Designation: "Software Engineer",
 //         printDetails: function (){
-//             console.log(this);
+//             console.log(this.name);
 //         }
 //     }
 //     userDetails.printDetails(); // yha this userDetails1 ko point kar rha hai 
@@ -30,9 +30,9 @@
 //     }
 // // ? Generic function bnaya hai jise koi bhi object use kar sakta hai    
 //     let printDetails = function (){
-//         console.log(this);
+//         console.log(this.name);
 //     }
-//     printDetails.call(userDetails1);
+//     printDetails.call(userDetails1);  // yha hamne printDetail() function ko userDetails1 object ke liye call/use kiya hai
 
 
 
@@ -43,11 +43,11 @@
         Designation: "Software Engineer",
     }
 // ? Generic function bnaya hai jise koi bhi object use kar sakta hai    
-    let printDetails = function (state, country){
-        console.log(`${this.name}, ${state}, ${country}`);
+    let printDetails = function (state, country){   // yha parameter me delhi and india aaa rha hai 
+        console.log(`${this.name}, ${state}, ${country}`);  // hansraj singh tomar, Delhi, India 
     }
     printDetails.call(userDetails1,"Delhi","India");
-    printDetails.apply(userDetails1,["Delhi","India"]);
+    printDetails.apply(userDetails1,["Delhi","India"]);  // apply ke through ham array ke form me data send kar rha hai
 
     
 

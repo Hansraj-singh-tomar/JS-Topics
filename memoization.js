@@ -34,22 +34,23 @@
 // console.log(calc(5));  // 15 
 // console.timeEnd(); // default: 8.04ms
 
-4.
-// let sum = 0;
+//! Memoize function using using if_in loop, which run at once.
+// 4. 
 // const calc = (n) => {
+//     let sum = 0;
 //     for(let i=0;i<=n;i++){
 //         sum+=i;
 //     }
 //     return sum;
 // }
 
-// const memoize = (fun) => {   // memoize function takes function and return another function, here we'll see best use of clousure.. 
+// const memoize = ( fun ) => {   // memoize function takes function and return another function, here we'll see best use of clousure.. 
 //     let cache={}; // yha ham Map() ka use kar sakte hai 
 //     return function(...args){
-//        let n = args[0] ;   
+//         let n = args[0] ;   
 //        if(n in cache){   // this is not for loop ye sirf ek baar hi chalega, condition hai ye or we can say it if loop
-//            console.log('cache');
-//            console.log(cache);
+        //    console.log('cache');
+        //    console.log(cache);
 //            return cache[n]; // cache[5]
 //        }else{
 //           console.log("calculating first time");
@@ -57,21 +58,29 @@
 //           cache[n] = result; //means - cache[5] = 15
 //           return result;
 //        }
+       
 //     }
 // }
 
 // console.time();
 // const efficient = memoize(calc); // hamne memoize call kiya and calc pass kiya or ye hame ek or function return karega to hame usse stroe karna padega 
 // console.log(efficient(5)); // iss efficient me jo bhi function return ke rup me mila hai vo isme store kiya gya hai 
+// console.timeEnd();
 // /* outpput - 
 //           calculating first time 
 //           15
 //           default: 9.284ms
 // */
-// console.timeEnd();
 
 // console.time();
 // console.log(efficient(5));  
+// console.timeEnd();
+// console.time();
+// console.log(efficient(6));  
+// console.timeEnd();
+// console.time();
+// console.log(efficient(6));  
+// console.timeEnd();
 
 // /* output -
 //         cache 
@@ -79,7 +88,6 @@
 //         15 
 //         default: 5.261ms
 // */
-// console.timeEnd();
 
 // JS Quize -
 // const {a:x=10,b:y=20} = {a:30}
@@ -111,8 +119,8 @@
 // console.log(cache); // { '5': 18, '6': 36, '7': '19', '8': 64, name: 'hansraj' }
 
 //! Using Map() method 
-let sum = 0;
 const calc = (n) => {
+    let sum = 0;
     for(let i=0;i<=n;i++){
         sum+=i;
     }
@@ -122,19 +130,20 @@ const memoize = (fun) => {
     let cache = new Map();
     // console.log(cache); // Map(0) {}
     return function(...args){
-        const n = args.toString();  // array ko string me convert karne ke liye use kiya gya hai 
-        // const n = args[0]; // iske through color yellow aa rha hai or toString() ka use kar ke color alag
+        // const n = args.toString();  // array ko string me convert karne ke liye use kiya gya hai 
+        const n = args[0]; // iske through color yellow aa rha hai or toString() ka use kar ke color alag
         // console.log(n); // 5  
         if(cache.has(n)){
            console.log('cache');
            console.log(cache);
            return cache.get(n);
+        //    return cache[n];  //! it won't work like that 
         }else{
             console.log("calculating first time");
             
-            // let result = fun(n);  // yha normal function ki jagah ham call,apply,bind method ka use kar sakte hai 
-            let result = fun.apply(null,args);
-            
+            let result = fun(n);  // yha normal function ki jagah ham call,apply,bind method ka use kar sakte hai 
+            // let result = fun.apply(null,args);
+                      
             // cache[n] = result; 
             cache.set(n, result)
             
@@ -144,20 +153,20 @@ const memoize = (fun) => {
 }
 console.time();
 const efficient = memoize(calc);
-console.log(efficient(5));  // 15
+console.log(efficient(5,6));  // 15
+console.timeEnd();
 /*
 calculating first time
 15
 default: 9.444ms
 */
-console.timeEnd();
 
 console.time();
 console.log(efficient(5));
-/*
-cache
-Map(1) { '5' => 15 }
-15
-default: 7.617ms
-*/
 console.timeEnd();
+// /*
+// cache
+// Map(1) { '5' => 15 }
+// 15
+// default: 7.617ms
+// */
