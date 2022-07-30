@@ -113,32 +113,34 @@ decoratedFun(2,3);
 //! now w'll write a code of debounce and try to understand it's concept.
 //1. first example 
 //! isse trailing debouncing bhi bolte hai 
-function debounce(func,delay){
-   let timeoutId;  // ! what is timeoutId
-   return function(...args){
-      // fist line 
-      // console.log(timeoutId);
-      if(timeoutId){  //first time me timeoutId undefined rhegi 
-         clearTimeout(timeoutId);
-      }
-      // second line 
-      // setTimeOut hame ek timeoutId return karta hai 
-      timeoutId = setTimeout(()=>{
-         func.call(this, ...args); 
-      },delay); 
-   };
-}
+// function debounce(func,delay){
+//    let timeoutId;  // ! what is timeoutId
+//    return function(...args){
+//       // fist line 
+//       console.log(timeoutId);
+//       if(timeoutId){  //first time me timeoutId undefined rhegi 
+//          clearTimeout(timeoutId);
+//       }
+//       console.log(timeoutId);
+//       // second line 
+//       // setTimeOut hame ek timeoutId return karta hai 
+//       timeoutId = setTimeout(()=>{
+//          func.call(this, ...args); 
+//          // func(...args)
+//       },delay); 
+//    };
+// }
 
-const myInput = document.getElementById("input-event");
+// const myInput = document.getElementById("input-event");
 
-//! this is owr normal function - to whom make us decorator function  
-function findSuggestions(e){
-    console.log("suggestions for", e.target.value);
-}
+// //! this is owr normal function - to whom make us decorator function  
+// function findSuggestions(e){
+//     console.log("suggestions for", e.target.value);
+// }
 
-//! now we decorate our normal function by passing it in debounce function
-const decoratedFun = debounce(findSuggestions,8000);
-myInput.addEventListener('input',decoratedFun);
+// //! now we decorate our normal function by passing it in debounce function
+// const decoratedFun = debounce(findSuggestions,2000);
+// myInput.addEventListener('input',decoratedFun);
 
 
 //1. myInput.addEventListener('input',decoratedFun); iss line se ye hoga ki user input field me jo kuch bhi type karega to decorated function call hoga 
@@ -162,20 +164,37 @@ myInput.addEventListener('input',decoratedFun);
 
 
 // second Example - 
-//! example of Trailing Debouncing
-// const myInput = document.querySelector(".myInput");
+//! example of Trailing Debouncing - ye input field, resize events, and scroll ke liye ek dam shi hai 
+const myInput = document.querySelector(".myInput");
 
-// function printValue(e){
-//    console.log(e.target.value);
-// }
-// function debounce(fun,delay){
-//    let setTimeoutId;
-//    return function(...args){
-//       clearTimeout(setTimeoutId);
-//       setTimeoutId = setTimeout(()=>{
-//          fun.call(this,...args);
-//       },delay);
-//    };
-// }
-// const debouncedPrintValue = debounce(printValue,3000);
-// myInput.addEventListener('input',debouncedPrintValue);
+function printValue(e){
+   console.log(e.target.value);
+}
+function debounce(fun,delay){
+   let setTimeoutId;
+   return function(...args){
+      clearTimeout(setTimeoutId);
+      setTimeoutId = setTimeout(()=>{
+         fun.call(this,...args);
+      },delay);
+   };
+}
+const debouncedPrintValue = debounce(printValue,3000);
+myInput.addEventListener('input',debouncedPrintValue);
+
+
+//! example - 
+// setTimeoutId = setTimeout(()=>{
+//             console.log(setTimeoutId);
+//             console.log(2+3);
+//          },2000);
+         
+         // output = 1
+         //          5  // ek sath 1 and 5 aa rha hai 
+         
+// setTimeoutId = setTimeout(()=>{
+//    console.log(2+3);
+// },2000);
+// console.log(setTimeoutId);
+
+// output = 1 and then 2sec. baad 5 aayega

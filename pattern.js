@@ -35,20 +35,95 @@
 // console.log(factorial(6)); // 720
 
 
-let arr = [1,23,4];
-// console.log(arr.length); // 3
-function printArr(array){
-    // 1.
-    // let arr2 = [];
-    // for(i=0;i<arr.length;i++){
-    //      arr2.push(arr[i]);
-    // }
-    // return arr2;
+// let arr = [1,23,4];
+// // console.log(arr.length); // 3
+// function printArr(array){
+//     // 1.
+//     // let arr2 = [];
+//     // for(i=0;i<arr.length;i++){
+//     //      arr2.push(arr[i]);
+//     // }
+//     // return arr2;
 
-    // 2.
-    array.forEach(element => {
-       console.log(element); 
-    });
-}
+//     // 2.
+//     array.forEach(element => {
+//        console.log(element); 
+//     });
+// }
 
-console.log(printArr(arr));
+// console.log(printArr(arr));
+
+// 1.
+// var n = 2 ;
+// function squa(num){
+//     var ans = num * num;
+//     return ans;
+// }
+// var squa2 = squa(n);
+// var squa4 = squa(4);
+
+// 2. 
+// console.log(x);
+
+// var x = 7;
+// function getName(){
+//     console.log('Namaste Js');
+// }
+// getName();
+// console.log(x);
+// output - namaste js undefined
+
+ 
+// console.log(x); // undefined 
+// console.log(getName); // undefined
+// var x = 7;
+// var getName = () => {
+//     console.log('namaste js');
+// }
+
+// getName();  // getName is not a function 
+// console.log(x);  
+// console.log(getName); 
+// var x = 7;
+// var getName = () => {
+//     console.log('namaste js');
+// }
+
+// let a = 20;
+// function x(){
+//     var a = 20;
+//     console.log(a);  // 20 
+// }
+// x();
+
+// function a(){
+//     let x = 7;
+//     function b(){
+//         console.log(x);
+//     }
+//     return b;
+// }
+
+// let z = a();
+// z();
+
+
+// let a ;
+// const b = 200;
+// a = 100 ;
+// console.log(a);
+
+// let a = 20;
+// {
+//     let a = 30;
+//     console.log(a); // 30 
+// }
+// console.log(a);  // 20 
+
+
+// let a = 10;
+// {
+//     var a = 20;
+//     console.log(a);
+// }
+// console.log(a);

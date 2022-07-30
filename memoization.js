@@ -49,8 +49,8 @@
 //     return function(...args){
 //         let n = args[0] ;   
 //        if(n in cache){   // this is not for loop ye sirf ek baar hi chalega, condition hai ye or we can say it if loop
-        //    console.log('cache');
-        //    console.log(cache);
+//            console.log('cache');
+//            console.log(cache);
 //            return cache[n]; // cache[5]
 //        }else{
 //           console.log("calculating first time");
@@ -66,16 +66,22 @@
 // const efficient = memoize(calc); // hamne memoize call kiya and calc pass kiya or ye hame ek or function return karega to hame usse stroe karna padega 
 // console.log(efficient(5)); // iss efficient me jo bhi function return ke rup me mila hai vo isme store kiya gya hai 
 // console.timeEnd();
-// /* outpput - 
-//           calculating first time 
-//           15
-//           default: 9.284ms
-// */
-
 // console.time();
 // console.log(efficient(5));  
 // console.timeEnd();
+// /* outpput - 
+        // calculating first time
+        // 15
+        // default: 8.713ms
+        // cache
+        // { '5': 15 }
+        // 15
+        // default: 4.488ms
+// */
+
+
 // console.time();
+// const efficient = memoize(calc);
 // console.log(efficient(6));  
 // console.timeEnd();
 // console.time();
@@ -83,10 +89,13 @@
 // console.timeEnd();
 
 // /* output -
-//         cache 
-//         { '5': 15 }
-//         15 
-//         default: 5.261ms
+        // calculating first time
+        // 21
+        // default: 8.961ms
+        // cache
+        // { '6': 21 }
+        // 21
+        // default: 3.896ms
 // */
 
 // JS Quize -
@@ -141,7 +150,7 @@ const memoize = (fun) => {
         }else{
             console.log("calculating first time");
             
-            let result = fun(n);  // yha normal function ki jagah ham call,apply,bind method ka use kar sakte hai 
+            let result = fun(n); // yha normal function ki jagah ham call,apply,bind method ka use kar sakte hai 
             // let result = fun.apply(null,args);
                       
             // cache[n] = result; 

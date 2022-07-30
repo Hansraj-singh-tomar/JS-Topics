@@ -36,7 +36,7 @@ function decorator(fun){
    return function(...args){
       //  with some extra work
       console.log(`you are calling decorated function and also ${fun.name} function`);  // you are calling decorated function and also sum function 
-      fun.call(this, ...args);
+      fun.call(null,...args); // null ki jagah this  bhi likh sakte hai but empty nhi chodna hai nhi to NAN milega output me  
    }
 }
 const decoratedFun = decorator(sum);
@@ -44,3 +44,14 @@ decoratedFun(2,3);
 // outpout 
 // you are calling decorated function and also sum function
 // 5
+
+
+// function add(x, y) {
+//    return x + y;
+//  }
+ 
+//  let result = add.call(this, 10, 20);  // By default, the this inside the function is set to the global object i.e., window in the web browsers and global in Node.js.
+//  console.log(result); // 30
+ 
+//  let result = add.call(null, 10, 20);
+//  console.log(result); // 30
