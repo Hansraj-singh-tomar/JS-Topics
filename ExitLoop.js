@@ -34,7 +34,7 @@ vowels.every(number => {
     console.log(number);
     return (number % 2 === 0);
 });
-// output - 2 10 12 7
+// output - 2 10 12 
 
 
 

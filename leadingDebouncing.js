@@ -22,7 +22,9 @@
 
 //         timeoutId = setTimeout(()=>{
 //             // setTimeout fun hame ek id/time return karega jise hame null karna padega
+//             console.log(timeoutId); // 6,7,8,9 kuch bhi dega output me
 //             timeoutId = null;
+//             console.log(timeoutId); // null
 //         }, delay);
 //    };
 // }
